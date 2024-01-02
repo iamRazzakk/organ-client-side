@@ -1,0 +1,19 @@
+  
+  .container img {
+    margin: 0 auto;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .container:hover img {
+    transform: translateY(-40%);
+  }
+  
+  .container h1 {
+    font-size: 1rem;
+    color: #555555;
+    transition: color 0.5s ease-in-out;
+  }
+  
+  .container:hover h1 {
+    color: #699c47;
+  }
