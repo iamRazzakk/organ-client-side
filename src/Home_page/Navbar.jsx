@@ -1,7 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from '../../src/assets/logo.png'
+import { useContext } from "react";
+import { AuthContext } from "../Components/AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext)
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    logOut()
+    navigate('/login')
+  }
   return (
     <div className="font-jost">
       <nav className="bg-white border-gray-200 ">
@@ -12,7 +20,13 @@ const Navbar = () => {
           </Link>
           <div className="flex items-center space-x-6 rtl:space-x-reverse">
             <Link to="/" className="text-sm text-gray-500 dark:text-black hover:underline">(+880) 1878265664</Link>
-            <Link to="/login" className="text-sm text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
+            {
+              user ? <>
+                <Link onClick={handleLogout} className="text-sm text-blue-600 dark:text-blue-500 hover:underline">Logout</Link>
+              </> : <>
+                <Link to="/login" className="text-sm text-blue-600 dark:text-blue-500 hover:underline">Login</Link>
+              </>
+            }
           </div>
         </div>
       </nav>
@@ -23,6 +37,15 @@ const Navbar = () => {
               <li className="nav-item">
                 <Link to="/" className="text-gray-900  nav-link dark:text-white hover:underline" aria-current="page">Home</Link>
               </li>
+              <li className="nav-item">
+                <details>
+                  <summary className="text-gray-900  nav-link dark:text-white hover:underline">Shop</summary>
+                  <ul className="p-2">
+                    <li><Link className="text-gray-900  nav-link dark:text-white hover:underline">Wish List</Link></li>
+                    <li><Link className="text-gray-900  nav-link dark:text-white hover:underline">Cart</Link></li>
+                  </ul>
+                </details>
+              </li>
               <li>
                 <Link to="/company" className="text-gray-900 dark:text-white hover:underline">Company</Link>
               </li>
@@ -32,6 +55,16 @@ const Navbar = () => {
               <li>
                 <Link to="/features" className="text-gray-900 dark:text-white hover:underline">Features</Link>
               </li>
+              <ul className="dropdown dropdown-end">
+                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img alt="component" src={user ? <>{user?.photoURL
+                    }</> : <>
+                      {"https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"}
+                    </>} />
+                  </div>
+                </div>
+              </ul>
             </ul>
           </div>
         </div>
