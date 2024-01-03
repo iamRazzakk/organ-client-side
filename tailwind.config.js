@@ -7,8 +7,6 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-      rzak: ['Poppins', 'sans-serif'],
-      montserrat:['Montserrat', 'sans-serif'],
       jost:['Jost', 'sans-serif']
       },
     },

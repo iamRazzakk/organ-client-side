@@ -16,7 +16,7 @@ const Login = () => {
     return (
         <div className="md:p-10">
             <div>
-                <h1 className="text-3xl font-bold text-center mt-4 font-rzak">Welcome to Login Page</h1>
+                <h1 className="text-3xl font-bold text-center mt-4 font-jost">Welcome to Login Page</h1>
             </div>
             <form onSubmit={handleSubmit} className="card-body">
                 <div className="form-control">

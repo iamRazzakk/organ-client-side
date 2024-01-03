@@ -55,8 +55,8 @@ const Header = () => {
 
             </div >
             <div className='bg-white relative ml-[650px] -mt-11 text-black '>
-                <h1 className='text-5xl font-bold font-rzak'>80k</h1>
-                <p className='font-rzak'>Metric ton product <br /> supplied</p>
+                <h1 className='text-5xl font-bold font-jost'>80k</h1>
+                <p className='font-jost'>Metric ton product <br /> supplied</p>
             </div>
         </div>
     );

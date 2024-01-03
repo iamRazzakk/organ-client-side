@@ -3,7 +3,7 @@
 const Footer = () => {
     return (
         <div>
-            <footer className="footer p-10  text-white bg-gray-700">
+            <footer className="footer p-10  text-white mt-10  bg-[#699c47]">
                 <nav>
                     <header className="footer-title">Services</header>
                     <a className="link link-hover">Branding</a>
