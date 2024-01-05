@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import {  NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
 
 const Dashboard = () => {
-    const {user}=useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     return (
         <div className="bg-white md:max-h-screen">
             <div className="text-black font-Poppins flex  max-w-3xl lg:max-w-screen-xl">
@@ -15,7 +15,8 @@ const Dashboard = () => {
                                 <li><NavLink to='/dashboard/createTask'>Create Task</NavLink></li>
                                 <li><NavLink to='/dashboard/taskManagement'>Task management</NavLink></li>
                                 <li><NavLink to='/dashboard/previous'>Previous task</NavLink></li>
-                
+                                <div className="divider"></div>
+                                <li><NavLink to='/'>Home</NavLink></li>
                             </>
                         }
                     </ul>
