@@ -55,16 +55,15 @@ const Navbar = () => {
               <li>
                 <Link to="/features" className="text-gray-900 dark:text-white hover:underline">Features</Link>
               </li>
-              <ul className="dropdown dropdown-end">
-                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img alt="component" src={user ? <>{user?.photoURL
-                    }</> : <>
-                      {"https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg"}
-                    </>} />
+              <Link to='dashboard'>
+                <ul className="dropdown dropdown-end">
+                  <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                    <div className="w-10 rounded-full">
+                      <img src={user?.photoURL} alt="" />
+                    </div>
                   </div>
-                </div>
-              </ul>
+                </ul>
+              </Link>
             </ul>
           </div>
         </div>

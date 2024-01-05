@@ -12,6 +12,8 @@ import About from './Components/AboutUs/About';
 import Login from './Pages/Login/Login';
 import Singup from './Pages/Singup/Singup';
 import AuthProvider from './Components/AuthProvider/AuthProvider';
+import Dashboard from './Dashboard/Dashboard_Profile/Dashboard';
+import Profile from './Dashboard/Profile/Profile';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +37,16 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: 'profile',
+        element: <Profile></Profile>
+      }
+    ]
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
