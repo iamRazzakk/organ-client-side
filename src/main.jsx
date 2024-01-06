@@ -21,6 +21,7 @@ import Dashboard from './Dashboard/Dashboard_Profile/Dashboard';
 import Profile from './Dashboard/Profile/Profile';
 import YtVideo from './Components/youtube_video/YtVideo';
 import AddProduct from './Dashboard/Add_product/AddProduct';
+import Blogs from './Components/Blogs/Blogs';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: 'video',
         element: <YtVideo></YtVideo>
+      },
+      {
+        path: '/blog',
+        element: <Blogs></Blogs>
       },
       {
         path: '/login',

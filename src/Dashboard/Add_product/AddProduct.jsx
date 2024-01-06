@@ -1,8 +1,14 @@
 import { useContext } from "react";
 import { AuthContext } from './../../Components/AuthProvider/AuthProvider';
-
+import useAxiosPublic from "../../Components/Hook/axiosPublic";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+const imgHostingKey = import.meta.env.ImgHoistingKey
+const imgHostingAPI = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
 const AddProduct = () => {
     const { user } = useContext(AuthContext)
+    const axiosPublic = useAxiosPublic()
+    const notify = () => toast("Successfully added");
     const handleSubmit = e => {
         e.preventDefault()
         const form = e.target;
@@ -10,8 +16,24 @@ const AddProduct = () => {
         const Title = form.Title.value || 'undefined';
         const Description = form.Description.value || 'undefined';
         const time = form.time.value || 'undefined';
-        const img = form.img.value || 'undefined'
+        const imgInput = form.img
+        const img = imgInput.files.length > 0 ? imgInput.files[0] : null;
         console.log(name, Title, Description, time, img);
+        const blogData = {
+            name,
+            Description,
+            Title,
+            time,
+            img
+        }
+        axiosPublic.post("/blogs", blogData)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.acknowledged) {
+                    notify()
+                }
+            })
+
     }
     return (
         <div className="font-jost mt-5">
@@ -60,12 +82,13 @@ const AddProduct = () => {
                 </div>
 
                 <div className=" justify-end mt-6">
-                    <button className="relative inline-flex items-center justify-start  px-5 py-3 overflow-hidden font-bold rounded-full group">
+                    <button type="submit" className="relative inline-flex items-center justify-start  px-5 py-3 overflow-hidden font-bold rounded-full group">
                         <span className="w-32 h-32 rotate-45 translate-x-12 -translate-y-2 absolute left-0 top-0 bg-[#699c47] opacity-[3%]"></span>
                         <span className="absolute top-0 left-0 w-48 h-48 -mt-1 transition-all duration-500 ease-in-out rotate-45 -translate-x-56 -translate-y-24 bg-[#699c47] opacity-100 group-hover:-translate-x-8"></span>
                         <span className="relative w-full text-left text-black transition-colors duration-200 ease-in-out group-hover:text-gray-900">Save</span>
                         <span className="absolute inset-0 border-2 border-[#699c47] rounded-full"></span>
                     </button>
+                    <ToastContainer />
                 </div>
             </form>
         </div>
