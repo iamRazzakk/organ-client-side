@@ -3,7 +3,7 @@ import aboutUS from '../../assets/about-icon.jpeg'
 // import img2 from '../../assets/about-img-2.jpeg'
 // import img3 from '../../assets/aboutimg-1.jpeg'
 
-const AboutUs = () => {
+const Contact = () => {
     return (
         <div className="flex mt-20">
             <div className="flex-1 p-10 font-jost">
@@ -47,4 +47,4 @@ const AboutUs = () => {
         </div>
     );
 };
-export default AboutUs;
+export default Contact;

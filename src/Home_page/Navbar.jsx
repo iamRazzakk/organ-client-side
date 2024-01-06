@@ -53,7 +53,7 @@ const Navbar = () => {
                 <Link to="/team" className="text-gray-900 dark:text-white hover:underline">Team</Link>
               </li>
               <li>
-                <Link to="/features" className="text-gray-900 dark:text-white hover:underline">Features</Link>
+                <Link to="/about" className="text-gray-900 dark:text-white hover:underline">Contact</Link>
               </li>
               <Link to={'dashboard/profile'}>
                 <ul className="dropdown dropdown-end">

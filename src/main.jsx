@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 
 import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
@@ -14,6 +19,9 @@ import Singup from './Pages/Singup/Singup';
 import AuthProvider from './Components/AuthProvider/AuthProvider';
 import Dashboard from './Dashboard/Dashboard_Profile/Dashboard';
 import Profile from './Dashboard/Profile/Profile';
+import YtVideo from './Components/youtube_video/YtVideo';
+import AddProduct from './Dashboard/Add_product/AddProduct';
+const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About></About>
+      },
+      {
+        path: 'video',
+        element: <YtVideo></YtVideo>
       },
       {
         path: '/login',
@@ -44,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: 'profile',
         element: <Profile></Profile>
+      },
+      {
+        path: 'addproduct',
+        element: <AddProduct></AddProduct>
       }
     ]
   }
@@ -51,10 +67,12 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AuthProvider>
-      <div className='lg:w-[1280px] mx-auto'>
-        <RouterProvider router={router} />
-      </div>
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <div className='lg:w-[1280px] mx-auto'>
+          <RouterProvider router={router} />
+        </div>
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
 )
