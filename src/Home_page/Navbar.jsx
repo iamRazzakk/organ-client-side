@@ -46,8 +46,14 @@ const Navbar = () => {
                   </ul>
                 </details>
               </li>
-              <li>
-                <Link to="/company" className="text-gray-900 dark:text-white hover:underline">Company</Link>
+              <li className="nav-item">
+                <details>
+                  <summary className="text-gray-900  nav-link dark:text-white hover:underline">Pages</summary>
+                  <ul className="p-2">
+                    <li><Link className="text-gray-900  nav-link dark:text-white hover:underline">About</Link></li>
+                    <li><Link className="text-gray-900  nav-link dark:text-white hover:underline">Cart</Link></li>
+                  </ul>
+                </details>
               </li>
               <li>
                 <Link to="/blog" className="text-gray-900 dark:text-white hover:underline">Blog</Link>

@@ -13,7 +13,6 @@ import {
 } from "react-router-dom";
 import Main from './Main/Main';
 import Home from './Home_page/Home';
-import About from './Components/AboutUs/About';
 import Login from './Pages/Login/Login';
 import Singup from './Pages/Singup/Singup';
 import AuthProvider from './Components/AuthProvider/AuthProvider';
@@ -22,6 +21,7 @@ import Profile from './Dashboard/Profile/Profile';
 import YtVideo from './Components/youtube_video/YtVideo';
 import AddProduct from './Dashboard/Add_product/AddProduct';
 import Blogs from './Components/Blogs/Blogs';
+import Contact from './Components/AboutUs/Contact';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -33,8 +33,8 @@ const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
-        path: '/about',
-        element: <About></About>
+        path: '/contact',
+        element: <Contact></Contact>
       },
       {
         path: 'video',
