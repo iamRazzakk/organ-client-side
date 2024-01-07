@@ -22,6 +22,7 @@ import YtVideo from './Components/youtube_video/YtVideo';
 import AddProduct from './Dashboard/Add_product/AddProduct';
 import Blogs from './Components/Blogs/Blogs';
 import Contact from './Components/AboutUs/Contact';
+import About from './Components/AboutUs/About';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: '/singUp',
         element: <Singup></Singup>
+      },
+      {
+        path: '/about',
+        element: <About></About>
       }
     ]
   },

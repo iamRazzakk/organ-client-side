@@ -50,8 +50,9 @@ const Navbar = () => {
                 <details>
                   <summary className="text-gray-900  nav-link dark:text-white hover:underline">Pages</summary>
                   <ul className="p-2">
-                    <li><Link className="text-gray-900  nav-link dark:text-white hover:underline">About</Link></li>
-                    <li><Link className="text-gray-900  nav-link dark:text-white hover:underline">Cart</Link></li>
+                    <li><Link to='about' className="text-gray-900  nav-link dark:text-white hover:underline">About</Link></li>
+                    <li><Link className="text-gray-900  nav-link dark:text-white hover:underline">Team</Link></li>
+                    <li><Link className="text-gray-900  nav-link dark:text-white hover:underline">FAQ</Link></li>
                   </ul>
                 </details>
               </li>
