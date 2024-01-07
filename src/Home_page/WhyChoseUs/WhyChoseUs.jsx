@@ -5,8 +5,12 @@ import img3 from '../../assets/3.jpeg'
 import img4 from '../../assets/4.jpeg'
 import img5 from '../../assets/5.jpeg'
 import img6 from '../../assets/6.jpeg'
-import Typewriter from 'typewriter-effect';
+import CountUp from 'react-countup';
 const WhyChoseUs = () => {
+    const countValue = 89;
+    const countValue1 = 80;
+    const countValue2 = 40;
+    const countValue3 = 25;
     return (
         <div className='font-jost bg-[#f7f5f2] w-full'>
             <div className="text-center font-jost">
@@ -79,53 +83,33 @@ const WhyChoseUs = () => {
             </div>
             <div className='bg-[#699c47] h-[289px] w-[1116px] mx-auto'>
                 <div className='flex text-center p-24 text-white'>
-                    <div className='flex-1 '>
-                        <h1 className='text-4xl font-bold'>
-                            <Typewriter
-                                options={{
-                                    strings: ['89k+'],
-                                    autoStart: true,
-                                    loop: true,
-                                }}
-                            />
-                        </h1>
-                        <h2 className='text-xl'>Organic Products</h2>
-                    </div >
-                    <div className='flex-1'>
-                        <h1 className='text-4xl font-bold'>
-                        <Typewriter
-                                options={{
-                                    strings: ['80k+'],
-                                    autoStart: true,
-                                    loop: true,
-                                }}
-                            />
-                        </h1>
-                        <h2 className='text-xl'>Metric to supplied</h2>
+                    <div className="flex-1 rounded-lg  flex justify-around items-center bg-cover bg-center">
+                        <div className=''>
+                            <CountUp className='text-5xl font-bold' end={countValue} duration={3} separator="," suffix="k" />
+                            <h2 className='text-xl font-bold'>Organic Products</h2>
+                        </div>
                     </div>
-                    <div className='flex-1'>
-                        <h1 className='text-4xl font-bold'>
-                        <Typewriter
-                                options={{
-                                    strings: ['40k+'],
-                                    autoStart: true,
-                                    loop: true,
-                                }}
-                            />
-                        </h1>
-                        <h2 className='text-xl'>Experienced Farmer</h2>
+
+                    {/*  */}
+
+                    {/*  */}
+                    <div className="flex-1 rounded-lg  flex justify-around items-center bg-cover bg-center">
+                        <div className=''>
+                            <CountUp className='text-5xl font-bold' end={countValue1} duration={3} separator="," suffix="k" />
+                            <h2 className='text-xl font-bold'>Metric to supplied</h2>
+                        </div>
                     </div>
-                    <div className='flex-1'>
-                        <h1 className='text-4xl font-bold'>
-                        <Typewriter
-                                options={{
-                                    strings: ['25k+'],
-                                    autoStart: true,
-                                    loop: true,
-                                }}
-                            />
-                        </h1>
-                        <h2 className='text-xl'>Organic Awards</h2>
+                    <div className="flex-1 rounded-lg  flex justify-around items-center bg-cover bg-center">
+                        <div className=''>
+                            <CountUp className='text-5xl font-bold' end={countValue2} duration={3} separator="," suffix="k" />
+                            <h2 className='text-xl font-bold'>Experienced Farmer</h2>
+                        </div>
+                    </div>
+                    <div className="flex-1 rounded-lg  flex justify-around items-center bg-cover bg-center">
+                        <div className=''>
+                            <CountUp className='text-5xl font-bold' end={countValue3} duration={3} separator="," suffix="k" />
+                            <h2 className='text-xl font-bold'>Organic Awards</h2>
+                        </div>
                     </div>
                 </div>
             </div>

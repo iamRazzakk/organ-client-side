@@ -2,7 +2,12 @@ import aboutImg from '../../../src/assets/about-img-2.jpeg'
 import slider from '../../../src/assets/slider-01.jpeg'
 import Founder from '../../../src/assets/Office.png'
 import sosa from '../../../src/assets/sosa.jpeg'
+import CountUp from 'react-countup';
 const About = () => {
+    const countValue = 89;
+    const countValue1 = 80;
+    const countValue2 = 40;
+    const countValue3 = 25;
     return (
         <div className="font-jost p-4">
             <div className="mt-4 relative">
@@ -49,6 +54,35 @@ const About = () => {
             </div>
             <div className='ml-20 mt-4'>
                 <img src={sosa} alt="" />
+            </div>
+            {/* count down */}
+            <div className=' h-[289px] w-[1116px] mx-auto'>
+                <div className='flex text-center p-24 text-black'>
+                    <div className="flex-1 rounded-lg  flex justify-around items-center bg-cover bg-center">
+                        <div className=''>
+                            <CountUp className='text-5xl font-bold' end={countValue} duration={3} separator="," suffix="k" />
+                            <h2 className='text-xl font-bold'>Organic Products</h2>
+                        </div>
+                    </div>
+                    <div className="flex-1 rounded-lg  flex justify-around items-center bg-cover bg-center">
+                        <div className=''>
+                            <CountUp className='text-5xl font-bold' end={countValue1} duration={3} separator="," suffix="k" />
+                            <h2 className='text-xl font-bold'>Metric to supplied</h2>
+                        </div>
+                    </div>
+                    <div className="flex-1 rounded-lg  flex justify-around items-center bg-cover bg-center">
+                        <div className=''>
+                            <CountUp className='text-5xl font-bold' end={countValue2} duration={3} separator="," suffix="k" />
+                            <h2 className='text-xl font-bold'>Experienced Farmer</h2>
+                        </div>
+                    </div>
+                    <div className="flex-1 rounded-lg  flex justify-around items-center bg-cover bg-center">
+                        <div className=''>
+                            <CountUp className='text-5xl font-bold' end={countValue3} duration={3} separator="," suffix="k" />
+                            <h2 className='text-xl font-bold'>Organic Awards</h2>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     );
