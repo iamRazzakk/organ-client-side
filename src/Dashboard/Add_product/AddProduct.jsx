@@ -3,38 +3,42 @@ import { AuthContext } from './../../Components/AuthProvider/AuthProvider';
 import useAxiosPublic from "../../Components/Hook/axiosPublic";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-const imgHostingKey = import.meta.env.ImgHoistingKey
-const imgHostingAPI = `https://api.imgbb.com/1/upload?key=${imgHostingKey}`
 const AddProduct = () => {
     const { user } = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
     const notify = () => toast("Successfully added");
-    const handleSubmit = e => {
-        e.preventDefault()
+    const IMG_API_KEY = '95e0e6f1790d5b0a2184be49e4a99407'
+    const handleSubmit = async e => {
+        e.preventDefault();
         const form = e.target;
-        const name = user?.displayName || 'undefined'
+        const name = user?.displayName || 'undefined';
         const Title = form.Title.value || 'undefined';
         const Description = form.Description.value || 'undefined';
         const time = form.time.value || 'undefined';
-        const imgInput = form.img
-        const img = imgInput.files.length > 0 ? imgInput.files[0] : null;
-        console.log(name, Title, Description, time, img);
-        const blogData = {
-            name,
-            Description,
-            Title,
-            time,
-            img
-        }
-        axiosPublic.post("/blogs", blogData)
-            .then(res => {
-                console.log(res.data);
-                if (res.data.acknowledged) {
-                    notify()
-                }
-            })
+        const image = form.image.files[0];
+        const formData = new FormData();
+        formData.append('image', image);
 
-    }
+        try {
+            const { data } = await axiosPublic.post(`https://api.imgbb.com/1/upload?key=${IMG_API_KEY}`, formData);
+            const blogData = {
+                name: name,
+                Description: Description,
+                Title: Title,
+                time: time,
+                image: data.data.url,
+            };
+            axiosPublic.post("/blogs", blogData)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.acknowledged) {
+                        notify();
+                    }
+                });
+        } catch (error) {
+            console.error('Error uploading image:', error);
+        }
+    };
     return (
         <div className="font-jost mt-5">
             <h1 className="text-center text-5xl font-bold">Add Product</h1>
@@ -73,10 +77,7 @@ const AddProduct = () => {
                     <div>
                         <label className="text-black dark:text-black" htmlFor="passwordConfirmation">Img Confirmation</label>
                         <input
-                            id="img"
-                            type="file"
-                            name="img"
-                            className="block w-full px-4 py-2 mt-2 text-white bg-[#699c47] border border-gray-200 rounded-md dark:bg-[#699c47] [#699c47]:text-white focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                            type="file" name="image" className="block w-full px-4 py-2 mt-2 text-white bg-[#699c47] border border-gray-200 rounded-md dark:bg-[#699c47] [#699c47]:text-white focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
                         />
                     </div>
                 </div>
