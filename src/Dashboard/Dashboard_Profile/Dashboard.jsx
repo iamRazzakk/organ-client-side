@@ -12,8 +12,8 @@ const Dashboard = () => {
                         {
                             user && <>
                                 <li className="md:mb-4"><NavLink to='/dashboard/profile'>My Profile</NavLink></li>
-                                <li><NavLink to='/dashboard/addproduct'>Add Product</NavLink></li>
-                                <li><NavLink to='/dashboard/taskManagement'>Task management</NavLink></li>
+                                <li><NavLink to='/dashboard/addBlog'>Add Blog</NavLink></li>
+                                <li><NavLink to='/dashboard/add-product'>Add Product</NavLink></li>
                                 <li><NavLink to='/dashboard/previous'>Previous task</NavLink></li>
                                 <div className="divider"></div>
                                 <li><NavLink to='/'>Home</NavLink></li>

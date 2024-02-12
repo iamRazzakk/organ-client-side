@@ -3,7 +3,6 @@ import Header from "./Header/Header";
 import Organic from "./Organic/Organic";
 import WhyChoseUs from "./WhyChoseUs/WhyChoseUs";
 
-
 const Home = () => {
     return (
         <div>

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../Hook/axiosPublic";
 import { Link } from "react-router-dom";
 import Loader from "../Shared/Loader";
-
+import "./Blog.css"
 
 const Blogs = () => {
 
@@ -23,8 +23,8 @@ const Blogs = () => {
             {
                 blogs?.map(blog => (
                     <div key={blog.id} className="card card-compact bg-base-100 shadow-xl">
-                        <figure><img src={blog.image} alt="Shoes" /></figure>
-                        <div className="card-body">
+                        <figure><img className="img" src={blog.image} alt="Shoes" /></figure>
+                        <div className="card-body ">
                             <div className="flex justify-between">
                                 <h2 className="">{blog.time}</h2>
                                 <h2 className="">{blog.name}</h2>

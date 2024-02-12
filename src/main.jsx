@@ -19,11 +19,12 @@ import AuthProvider from './Components/AuthProvider/AuthProvider';
 import Dashboard from './Dashboard/Dashboard_Profile/Dashboard';
 import Profile from './Dashboard/Profile/Profile';
 import YtVideo from './Components/youtube_video/YtVideo';
-import AddProduct from './Dashboard/Add_product/AddProduct';
 import Blogs from './Components/Blogs/Blogs';
 import Contact from './Components/AboutUs/Contact';
 import About from './Components/AboutUs/About';
 import BlogDetails from './Components/Blogs/BlogDetails';
+import AddBlog from './Dashboard/Add_product/AddProduct';
+import AddProducts from './Dashboard/AddProducts/AddProducts';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -73,8 +74,12 @@ const router = createBrowserRouter([
         element: <Profile></Profile>
       },
       {
-        path: 'addproduct',
-        element: <AddProduct></AddProduct>
+        path: 'addBlog',
+        element: <AddBlog></AddBlog>
+      },
+      {
+        path: 'add-product',
+        element: <AddProducts></AddProducts>
       }
     ]
   }
