@@ -12,6 +12,7 @@ const AddProducts = () => {
         const Title = form.Title.value;
         const Price = form.price.value;
         const product = form.product.value;
+        const description = form.description.value;
         const Rating = form.ration.value;
         const image = form.image.files[0];
         const formData = new FormData();
@@ -24,9 +25,10 @@ const AddProducts = () => {
                 Price: Price,
                 Rating: Rating,
                 product: product,
+                description: description,
                 image: data.data.url,
             };
-            axiosPublic.post("/product", ProductDetails)
+            axiosPublic.post("/products", ProductDetails)
                 .then(res => {
                     console.log(res.data);
                     if (res.data.acknowledged) {
@@ -86,6 +88,13 @@ const AddProducts = () => {
                         <input
                             type="file" name="image" className="block w-full px-4 py-2 mt-2 text-white bg-[#699c47] border border-gray-200 rounded-md dark:bg-[#699c47] [#699c47]:text-white focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
                         />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="text-black dark:text-black">Description</span>
+                        </label>
+                        <textarea className="block w-full px-4 py-2 mt-2 text-white bg-[#699c47] border border-gray-200 rounded-md dark:bg-[#699c47] [#699c47]:text-white focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" name="description" id="" cols="30" rows="10" placeholder="Description"></textarea>
+                        {/* <input type="text" name="description" placeholder="Description" className="input input-bordered md:w-full bg-white text-black md:py-10" required /> */}
                     </div>
                 </div>
 

@@ -25,6 +25,7 @@ import About from './Components/AboutUs/About';
 import BlogDetails from './Components/Blogs/BlogDetails';
 import AddBlog from './Dashboard/Add_product/AddProduct';
 import AddProducts from './Dashboard/AddProducts/AddProducts';
+import ProductsDetails from './Home_page/Products/ProductsDetails';
 const queryClient = new QueryClient()
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: '/blog/:id',
         element: <BlogDetails></BlogDetails>
+      },
+      {
+        path: '/products/:id',
+        element: <ProductsDetails></ProductsDetails>
       }
     ]
   },
