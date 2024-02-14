@@ -2,8 +2,20 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from '../../src/assets/logo.png'
 import { useContext } from "react";
 import { AuthContext } from "../Components/AuthProvider/AuthProvider";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../Components/Hook/axiosPublic";
 
 const Navbar = () => {
+  const axiosPublic = useAxiosPublic()
+  const { data: userData = [], } = useQuery({
+    queryKey: ['user'],
+    queryFn: async () => {
+      const res = await axiosPublic.get('/users');
+      return res.data;
+    },
+  });
+  console.log(userData);
+
   const { user, logOut } = useContext(AuthContext)
   const navigate = useNavigate()
   const handleLogout = () => {
@@ -66,7 +78,7 @@ const Navbar = () => {
                 <ul className="dropdown dropdown-end">
                   <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                      <img src={user?.photoURL} alt="" />
+                      <img src={userData.image} alt="" />
                     </div>
                   </div>
                 </ul>

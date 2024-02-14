@@ -7,7 +7,7 @@ import { FaRegEye } from "react-icons/fa";
 import { BsBookmarkHeartFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react"; './Organic.css'
-
+import "./Products.css"
 const Products = () => {
     const axiosPublic = useAxiosPublic()
     const [activeTab, setActiveTab] = useState('');
@@ -43,8 +43,12 @@ const Products = () => {
     // console.log(ProductsData);
 
     return (
-        <div className="max-h-screen">
+        <div className="max-h-screen md:mb-32 font-jost">
             <div className="flex justify-between">
+                <div className="flex-1">
+                    <h1 className="font-bold text-[#699C47]">Organic Products</h1>
+                    <h1 className="text-5xl font-bold">Featured Product</h1>
+                </div>
                 <div className="flex-1">
                     <div role="tablist" className="flex overflow-auto justify-end tabs tabs-lifted">
                         <a onClick={() => handleTabClick("Biscuitsandsnacks")} role="tab" className={`tab ${activeTab === 'Biscuitsandsnacks' ? 'active [--tab-bg:black] [--tab-border-color:black] text-[#699C47] text-xl font-bold hover:underline' : ''}`}>Biscuit Sand Snacks</a>
@@ -53,19 +57,15 @@ const Products = () => {
                         <a onClick={() => handleTabClick("Organicfood")} role="tab" className={`tab ${activeTab === 'Organicfood' ? 'active [--tab-bg:black] [--tab-border-color:black] text-[#699C47] text-xl font-bold hover:underline' : ''}`}>Organic food</a>
                     </div>
                 </div>
-                <div className="flex-1">
-                    <h1>Organic Products</h1>
-                    <h1 className="text-5xl">Featured Product</h1>
-                </div>
             </div>
 
             {filteredData.length === 0 && (
                 <div className="text-center text-5xl md:mb-32 font-bold mt-4 text-[#699C47]">No Product Available</div>
             )}
 
-            <div className="grid  grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid md:mt-16 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {filteredData.map(products => (
-                    <div className="container shadow-xl rounded-lg" key={products._id}>
+                    <div data-aos="zoom-in" className="container shadow-xl rounded-lg" key={products._id}>
                         <img className="h-32 object-cover w-full" src={products?.image} alt="" />
                         <h1 className="text-center text-xl font-bold">{products?.Title}</h1>
                         <div className="flex justify-evenly">
@@ -74,12 +74,12 @@ const Products = () => {
                         </div>
                         <div className="flex justify-evenly mt-8 mb-8">
                             <Link to={'cart'}>
-                                <BsCart4 className="text-2xl"></BsCart4>
+                                <BsCart4 className="text-2xl icon"></BsCart4>
                             </Link>
                             <Link to={`products/${products._id}`}>
-                                <FaRegEye className="text-2xl"></FaRegEye>
+                                <FaRegEye className="text-2xl icon"></FaRegEye>
                             </Link>
-                            <BsBookmarkHeartFill className="text-2xl"></BsBookmarkHeartFill>
+                            <BsBookmarkHeartFill className="text-2xl icon"></BsBookmarkHeartFill>
                         </div>
                     </div>
                 ))}

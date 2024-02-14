@@ -6,75 +6,81 @@ import img4 from '../../assets/4.jpeg'
 import img5 from '../../assets/5.jpeg'
 import img6 from '../../assets/6.jpeg'
 import CountUp from 'react-countup';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react'
 const WhyChoseUs = () => {
     const countValue = 89;
     const countValue1 = 80;
     const countValue2 = 40;
     const countValue3 = 25;
+    useEffect(() => {
+        AOS.init()
+    }, [])
     return (
         <div className='font-jost bg-[#f7f5f2] w-full'>
             <div className="text-center font-jost">
                 <h1 className='font-jost text-xl text-[#699c47] mb-2'>Why Choose Us</h1>
                 <h1 className="text-5xl font-bold">6 reasons to Choose us</h1>
             </div>
-            <div className='flex'>
+            <div className='md:flex'>
                 <div className='flex-1 mt-10 p-10'>
                     <div className='flex w-[272] text-right h-[87px] p-6'>
-                        <div className='mr-6'>
+                        <div data-aos="fade-right" className='mr-6'>
                             <h1 className='font-bold mb-2'>100% Organic</h1>
                             <h3>We show that the seemingly simple <br /> process of text realization</h3>
                         </div>
-                        <div>
+                        <div data-aos="fade-left">
                             <img className='w-[42px] h-[39px]' src={img1} alt="" />
                         </div>
                     </div>
                     <div className='flex w-[272] mt-6 text-right h-[87px] p-6'>
-                        <div className='mr-6 '>
+                        <div data-aos="fade-right" className='mr-6 '>
                             <h1 className='font-bold mb-2'>Neat & Clean</h1>
                             <h3>We show that the seemingly <br /> simple process of text realization</h3>
                         </div>
-                        <div>
+                        <div data-aos="fade-left">
                             <img className='w-[42px] h-[39px]' src={img2} alt="" />
                         </div>
                     </div>
                     <div className='flex w-[272] mt-6 text-right h-[87px] p-6'>
-                        <div className='mr-6 '>
+                        <div data-aos="fade-right" className='mr-6 '>
                             <h1 className='font-bold mb-2'>No Preservation</h1>
                             <h3>We show that the seemingly simple <br /> process of text realization</h3>
                         </div>
-                        <div>
+                        <div data-aos="fade-left">
                             <img className='w-[42px] h-[39px]' src={img3} alt="" />
                         </div>
                     </div>
                 </div>
-                <div className='flex-1 mt-10'>
+                <div data-aos="flip-right" className='flex-1 mt-10'>
                     <img className='' src={img} alt="" />
                 </div>
                 {/* right side */}
                 <div className='flex-1 mt-10  p-10'>
                     <div className='flex w-[272] text-left h-[87px] p-6'>
-                        <div>
+                        <div data-aos="fade-right">
                             <img className='w-[42px] h-[39px]' src={img4} alt="" />
                         </div>
-                        <div className='ml-6'>
+                        <div data-aos="fade-left" className='ml-6'>
                             <h1 className='font-bold mb-2'>Export Quality</h1>
                             <h3>We show that the seemingly simple <br /> process of text realization</h3>
                         </div>
                     </div>
                     <div className='flex w-[272] mt-6 text-left h-[87px] p-6'>
-                        <div>
+                        <div data-aos="fade-right">
                             <img className='w-[42px] h-[39px]' src={img5} alt="" />
                         </div>
-                        <div className='ml-6 '>
+                        <div data-aos="fade-left" className='ml-6 '>
                             <h1 className='font-bold mb-2'>Trendy Design</h1>
                             <h3>We show that the seemingly <br /> simple process of text realization</h3>
                         </div>
                     </div>
                     <div className='flex w-[272] mt-6 text-left h-[87px] p-6'>
-                        <div>
+                        <div data-aos="fade-right">
                             <img className='w-[42px] h-[39px]' src={img6} alt="" />
                         </div>
-                        <div className='ml-6 '>
+                        <div data-aos="fade-left" className='ml-6 '>
                             <h1 className='font-bold mb-2'>Fast Delivery</h1>
                             <h3>We show that the seemingly simple <br /> process of text realization</h3>
                         </div>

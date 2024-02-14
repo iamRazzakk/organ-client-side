@@ -16,12 +16,12 @@ const Header = () => {
             <div className='flex'>
 
                 <div className='flex-1 p-6'>
-                    <h1 className='font-bold text-xl md:text-7xl pl-6 mt-20 md:mt-20 md:pl-20 w-full text-black '>Pure Organic Food Shop</h1>
+                    <h1  className='font-bold text-xl md:text-7xl pl-6 mt-20 md:mt-20 md:pl-20 w-full text-black '>Pure Organic Food Shop</h1>
                     <p className='md:pl-20 pl-6 mt-20 text-black text-xl mb-10'>Organic foods include fresh produce, meats, and dairy products as well as processed foods such as fruits frozen meals.</p>
                     <Link to='contact'>
                         <button className="relative inline-flex items-center justify-start px-6 py-3 overflow-hidden font-medium transition-all bg-[#699c47] rounded hover:bg-white group mt-4 ml-6 md:ml-20">
                             <span className="w-48 h-48 rounded rotate-[-40deg] bg-white absolute bottom-0 left-0 -translate-x-full ease-out duration-500 transition-all translate-y-full mb-9 ml-9 group-hover:ml-0 group-hover:mb-32 group-hover:translate-x-0"></span>
-                            <span className="relative w-full text-left text-black transition-colors duration-300 ease-in-out group-hover:text-black">Shop now</span>
+                            <span className="relative w-full text-left text-white transition-colors duration-300 ease-in-out group-hover:text-[#699c47]">Shop now</span>
                         </button>
                     </Link>
 

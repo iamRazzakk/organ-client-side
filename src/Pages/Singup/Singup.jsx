@@ -3,10 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
 import { auth } from "../../Components/AboutUs/Firebase/Firebase";
 import { GoogleAuthProvider } from "firebase/auth";
+import useAxiosPublic from './../../Components/Hook/axiosPublic';
+import { toast } from "react-toastify";
 
 const Singup = () => {
+    const notify = () => toast("Successfully added");
+    const IMG_API_KEY = '95e0e6f1790d5b0a2184be49e4a99407'
     const navigate = useNavigate()
     const { createUser, googleSingIn } = useContext(AuthContext)
+    const axiosPublic = useAxiosPublic()
     const loginWithGoogle = () => {
         googleSingIn(auth, GoogleAuthProvider)
             .then(result => {
@@ -18,7 +23,7 @@ const Singup = () => {
                 console.log(error);
             })
     }
-    const handleSubmit = e => {
+    const handleSubmit = async e => {
         e.preventDefault()
         // console.log('click');
         const form = e.target;
@@ -26,13 +31,41 @@ const Singup = () => {
         const ln = form.ln.value;
         const password = form.password.value;
         const email = form.email.value;
+        const image = form.image.files[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const { data } = await axiosPublic.post(`https://api.imgbb.com/1/upload?key=${IMG_API_KEY}`, formData);
         console.log(fn, ln, password, email);
         createUser(email, password)
             .then(result => {
                 const user = result.user
                 console.log(user);
                 navigate('/')
+                const userDatas = {
+                    fn: fn,
+                    ln: ln,
+                    email: email,
+                    password: password,
+                    image: data.data.url,
+                };
 
+                axiosPublic.post('/users', userDatas)
+                    .then(() => {
+                        // console.log(user);
+                        const user = { email, password }
+
+                        axiosPublic.post('/jwt', user)
+                            .then(res => {
+                                if (res.data.token) {
+                                    localStorage.setItem('access-token', res.data.token)
+                                } else {
+                                    localStorage.removeItem('access-token')
+                                }
+                            })
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    });
             })
             .catch(error => console.log(error))
     }
@@ -66,6 +99,12 @@ const Singup = () => {
                         <span className="label-text">Password</span>
                     </label>
                     <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+                </div>
+                <div className="form-control">
+                    <label className="label">
+                        <span className="label-text">Profile Pic</span>
+                    </label>
+                    <input type="file" name="image" className="input input-bordered" required />
                 </div>
                 <div className="form-control mt-6">
                     <button className="btn bg-[#699c47] text-white">Sing up</button>
